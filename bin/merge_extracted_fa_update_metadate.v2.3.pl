@@ -78,7 +78,7 @@ for my $ids (sort {$a <=> $b}  keys %sampleid){
 	
 	##for 16s
 	if(-e "$opt_o/$sampleid{$ids}.sam"){
-        my $s16num = `$ublastxdir/samtools view -f 3 $opt_o/$sampleid{$ids}.sam|wc -l`;
+        my $s16num = `$ublastxdir/samtools view -S -f 3 $opt_o/$sampleid{$ids}.sam|wc -l`;
         $hash16s{$sampleid{$ids}} = $s16num * $samplerlen{$ids} / 1432;
     }else{
         die "wrong run\n";
